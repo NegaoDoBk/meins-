@@ -1,1 +1,50 @@
+// Atribuindo os botões
+const parButton = document.getElementById('par');
+const imparButton = document.getElementById('impar');
+
+// Atribuindo os elementos de resultado
+const playerChoiceText = document.getElementById('player-choice');
+const computerChoiceText = document.getElementById('computer-choice');
+const gameResultText = document.getElementById('game-result');
+
+// Função para gerar um número aleatório
+function getRandomNumber() {
+    return Math.floor(Math.random() * 10) + 1;
+}
+
+// Função para checar o resultado do jogo
+function checkResult(playerChoice, computerNumber) {
+    const sum = computerNumber + playerChoice;
+    const isEven = sum % 2 === 0;
+
+    if (isEven && playerChoice === "Par") {
+        return "Você VENCEU!";
+    } else if (!isEven && playerChoice === "Ímpar") {
+        return "Você VENCEU!";
+    } else {
+        return "Você PERDEU!";
+    }
+}
+
+// Função para quando o jogador escolher "Par"
+parButton.addEventListener('click', () => {
+    const computerNumber = getRandomNumber();
+    const playerChoice = "Par";
+    const result = checkResult(playerChoice, computerNumber);
+
+    playerChoiceText.textContent = `Você escolheu: Par`;
+    computerChoiceText.textContent = `O computador escolheu o número: ${computerNumber}`;
+    gameResultText.textContent = result;
+});
+
+// Função para quando o jogador escolher "Ímpar"
+imparButton.addEventListener('click', () => {
+    const computerNumber = getRandomNumber();
+    const playerChoice = "Ímpar";
+    const result = checkResult(playerChoice, computerNumber);
+
+    playerChoiceText.textContent = `Você escolheu: Ímpar`;
+    computerChoiceText.textContent = `O computador escolheu o número: ${computerNumber}`;
+    gameResultText.textContent = result;
+});
 
