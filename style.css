@@ -90,4 +90,13 @@ h1 {
     color: #fff;
 }
 
+#game-result {
+    font-weight: bold;
+    font-size: 22px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* Sombra para o resultado */
+}
+
+
 
