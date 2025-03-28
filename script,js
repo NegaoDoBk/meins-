@@ -7,14 +7,14 @@ const playerChoiceText = document.getElementById('player-choice');
 const computerChoiceText = document.getElementById('computer-choice');
 const gameResultText = document.getElementById('game-result');
 
-// Função para gerar um número aleatório
+// Função para gerar um número aleatório entre 1 e 100
 function getRandomNumber() {
-    return Math.floor(Math.random() * 10) + 1;
+    return Math.floor(Math.random() * 100) + 1;
 }
 
 // Função para checar o resultado do jogo
 function checkResult(playerChoice, computerNumber) {
-    const sum = computerNumber + playerChoice;
+    const sum = computerNumber;
     const isEven = sum % 2 === 0;
 
     if (isEven && playerChoice === "Par") {
@@ -25,6 +25,29 @@ function checkResult(playerChoice, computerNumber) {
         return "Você PERDEU!";
     }
 }
+
+// Função para quando o jogador escolher "Par"
+parButton.addEventListener('click', () => {
+    const computerNumber = getRandomNumber();
+    const playerChoice = "Par";
+    const result = checkResult(playerChoice, computerNumber);
+
+    playerChoiceText.textContent = `Você escolheu: Par`;
+    computerChoiceText.textContent = `O número gerado foi: ${computerNumber}`;
+    gameResultText.textContent = result;
+});
+
+// Função para quando o jogador escolher "Ímpar"
+imparButton.addEventListener('click', () => {
+    const computerNumber = getRandomNumber();
+    const playerChoice = "Ímpar";
+    const result = checkResult(playerChoice, computerNumber);
+
+    playerChoiceText.textContent = `Você escolheu: Ímpar`;
+    computerChoiceText.textContent = `O número gerado foi: ${computerNumber}`;
+    gameResultText.textContent = result;
+});
+
 
 // Função para quando o jogador escolher "Par"
 parButton.addEventListener('click', () => {
